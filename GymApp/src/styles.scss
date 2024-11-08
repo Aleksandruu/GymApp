@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.btn {
+  width: 60%;
+  background-color: green;
+  height: 3rem;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 25px;
+}

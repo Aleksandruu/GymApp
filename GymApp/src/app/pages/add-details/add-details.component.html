@@ -1,0 +1,70 @@
+<form class="container" [formGroup]="detailsForm" (ngSubmit)="submit()">
+  @if(inputNumber == 1){
+  <div class="input-label">
+    <label class="label" for="name">Name:</label>
+    <input class="input" type="text" id="name" formControlName="name" />
+  </div>
+  } @if(inputNumber == 2){
+  <div class="input-label">
+    <label class="label" for="gender">Gender:</label>
+    <input class="input" type="text" id="gender" formControlName="gender" />
+  </div>
+  } @if(inputNumber == 3){
+  <div class="input-label">
+    <label class="label" for="age">Age:</label>
+    <input class="input" type="number" id="age" formControlName="age" />
+  </div>
+  } @if(inputNumber == 4){
+  <div class="input-label">
+    <label class="label" for="weight">Weight:</label>
+    <input class="input" type="number" id="weight" formControlName="weight" />
+  </div>
+  } @if(inputNumber == 5){
+  <div class="input-label">
+    <label class="label" for="height">Height:</label>
+    <input class="input" type="number" id="height" formControlName="height" />
+  </div>
+  } @if(inputNumber == 6){
+  <div class="input-label">
+    <label class="label" for="howManyTimesPerWeek"
+      >How many times per week you want to train:</label
+    >
+    <input
+      class="input"
+      type="number"
+      id="howManyTimesPerWeek"
+      formControlName="howManyTimesPerWeek"
+    />
+  </div>
+  } @if(inputNumber == 7){
+  <div class="input-label">
+    <label class="label" for="howMuchTimeInGym"
+      >How much time do you want to spend in the gym:</label
+    >
+    <input
+      class="input"
+      type="number"
+      id="howMuchTimeInGym"
+      formControlName="howMuchTimeInGym"
+    />
+  </div>
+  } @if(inputNumber == 8){
+  <div class="input-label">
+    <label class="label" for="reason"
+      >What are your primary fitness goals:</label
+    >
+    <input class="input" type="text" id="reason" formControlName="reason" />
+  </div>
+  } @if(inputNumber == 9){
+  <div class="input-label">
+    <label class="label" for="bodyPart"
+      >What body part do you want to train more:</label
+    >
+    <input class="input" type="text" id="bodyPart" formControlName="bodyPart" />
+  </div>
+  } @if (inputNumber != 9) {
+  <button class="btn" (click)="showComponent()">Next</button>
+  }@else {
+  <button class="btn" type="submit">Done</button>
+  }
+</form>
