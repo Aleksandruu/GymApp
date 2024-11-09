@@ -7,12 +7,13 @@ import { Workout } from '../../dataTypes/workout.type';
   standalone: true,
   imports: [],
   templateUrl: './workout.component.html',
-  styleUrl: './workout.component.scss'
+  styleUrl: './workout.component.scss',
 })
 export class WorkoutComponent {
-
   workouts: Workout[] = [];
-  constructor(private workoutService: WorkoutService){
-    this.workouts = this.workoutService.getWorkouts();
+  constructor(private workoutService: WorkoutService) {
+    this.workoutService.getWorkouts().subscribe((date) => {
+      this.workouts = date;
+    });
   }
 }

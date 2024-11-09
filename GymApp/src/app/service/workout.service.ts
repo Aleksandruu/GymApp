@@ -1,28 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Workout } from '../dataTypes/workout.type';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environmentDev } from '../environment/environment.dev';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WorkoutService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
-
-  getWorkouts(): Workout[]{
-    return [
-      {
-        name: "Chest-Tri",
-        exercises: [],
-      },{
-        name: "Back-Biceps",
-        exercises: [],
-      },{
-        name: "Legs",
-        exercises: [],
-      },{
-        name: "Shoulder-Abs",
-        exercises: [],
-      },
-    ]
+  getWorkouts(): Observable<Workout[]> {
+    return this.http.get<Workout[]>(
+      environmentDev.apiUrl + 'generate-workout/1/'
+    );
   }
 }
