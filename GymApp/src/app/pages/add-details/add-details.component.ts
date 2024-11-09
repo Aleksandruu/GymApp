@@ -1,5 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PATHS } from '../../constants/routes';
 
 @Component({
   selector: 'app-add-details',
@@ -12,7 +14,9 @@ export class AddDetailsComponent {
   detailsForm!: FormGroup;
   inputNumber = signal(1);
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     this.detailsForm = new FormGroup({
       name: new FormControl(''),
       gender: new FormControl(''),
@@ -32,5 +36,6 @@ export class AddDetailsComponent {
 
   submit(): void {
     console.log(this.detailsForm.value);
+    this.router.navigate([PATHS.WORKOUT]);
   }
 }
