@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class AddDetailsComponent {
   detailsForm!: FormGroup;
-  inputNumber = 1;
+  inputNumber = signal(1);
 
   constructor() {
     this.detailsForm = new FormGroup({
@@ -27,7 +27,7 @@ export class AddDetailsComponent {
   }
 
   showComponent(): void {
-    this.inputNumber++;
+    this.inputNumber.update((value) => value + 1);
   }
 
   submit(): void {
